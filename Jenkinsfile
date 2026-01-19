@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Code checked out from GitHub'
+                echo 'Pulling code from GitHub'
             }
         }
 
-        stage('List Files') {
+        stage('Build Docker Image') {
             steps {
-                sh 'ls -la'
+                sh 'docker build -t jenkins-demo-app .'
             }
         }
     }
